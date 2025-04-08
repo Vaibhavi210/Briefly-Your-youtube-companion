@@ -1,0 +1,4 @@
+/* styles.css */
+input[placeholder="Enter YouTube URL"]::placeholder {
+    color: white !important;
+  }
