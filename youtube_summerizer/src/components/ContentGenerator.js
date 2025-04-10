@@ -30,7 +30,8 @@ export default function ContentGenerator({ summary , language }) {
     setError("");
     
     try {
-      const response = await fetch("http://127.0.0.1:5000/generate-content", {
+      const backendUrl= process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await fetch(`${backendUrl}/generate-content`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 

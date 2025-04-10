@@ -45,7 +45,10 @@ export default function Homepage() {
   const getSummary = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5000/summarize", {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+    
+    
+      const response = await fetch(`${backendUrl}/summarize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, language }),
@@ -72,7 +75,8 @@ export default function Homepage() {
     }
     setPodcastLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5000/text-to-speech", {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+      const response = await fetch(`${backendUrl}/text-to-speech`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: summary }),

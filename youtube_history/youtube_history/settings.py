@@ -113,11 +113,11 @@ WSGI_APPLICATION = "youtube_history.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yt_summerizer',  # Replace with your database name
-        'USER': 'postgres',      # Replace with your database username
-        'PASSWORD': 'vaibhavi',  # Replace with your database password
-        'HOST': 'localhost',   # Use 'localhost' if running locally or the IP/hostname if remote
-        'PORT': '5432',        # Default PostgreSQL port
+        'NAME': os.getenv("DB_NAME"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),# Default PostgreSQL port
        
     }
 }

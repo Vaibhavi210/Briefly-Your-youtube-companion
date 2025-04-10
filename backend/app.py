@@ -312,9 +312,11 @@ def summarize():
         "language": target_language
     })
 
-if __name__=="__main__":
-    app.run(debug=True)
-
+# if __name__=="__main__":
+#     app.run(debug=True)
+# At the end of your app.py file, change:
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=5000)
     
     
 
